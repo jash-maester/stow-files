@@ -1,0 +1,4 @@
+#!/bin/bash
+
+#icon=""
+printf "$icon $(free -m | awk '/^Mem:/ {print ""$3 " MB"}')"

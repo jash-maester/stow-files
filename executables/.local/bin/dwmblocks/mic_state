@@ -1,0 +1,13 @@
+#!/bin/sh
+
+state="$(pactl list sources | grep '^[[:space:]]Mute:' | awk '{ print $2 }' | grep yes)"
+
+if [ "$state" == "yes" ]; then
+	mic="   "
+else
+	mic="   "
+fi
+
+#[ $(pulsemixer --get-mute) = 1 ] && icon="ﱝ  "
+
+echo "$mic"
