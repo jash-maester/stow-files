@@ -1,6 +1,18 @@
-#!/bin/sh
-xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x309 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 1920x0 --rotate normal
+#!/bin/bash
+mapfile -t my_array < <(xrandr | grep connected | awk '{print $1}')
+num_display=${#my_array[@]}
+
+if [[ $num_display -eq 1 ]]
+then
+	xrandr --auto
+elif [[ $num_display -eq 2 ]]
+then
+	export display0=${my_array[0]}
+	export display1=${my_array[1]}
+	xrandr --output $display0 --primary --mode 1920x1080 --pos 0x309 --rotate normal --output $display1 --mode 1920x1080 --pos 1920x0 --rotate normal
+else
+	xrandr --auto && notify-send "No configuration available for this monitor combo."
+fi
 
 #nitrogen --restore && killall conky
-
-/home/jash_maester/.fehbg
+~/.fehbg
