@@ -28,4 +28,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-date "+%d %b %Y (%a)   $icon  %I:%M:%S %p"
+date "+%d %b %Y (%a)  $icon  %I:%M:%S %p"
