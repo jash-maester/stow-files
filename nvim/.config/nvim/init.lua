@@ -46,6 +46,7 @@ require('autopairs')
 require('tree-sitter_config')
 
 -- Nvim Tree
+--require('nvim-tree').setup()
 require('nvim-tree_custom')
 
 -- Nvim Tree
@@ -97,6 +98,7 @@ wo.cursorline = true
 wo.number = true
 -- wo.relativenumber = true
 wo.wrap = true
+wo.linebreak = true
 
 -------------------- MAPPINGS ------------------------------
 require('custom_mappings')

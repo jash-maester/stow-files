@@ -57,7 +57,7 @@ end
 time([[Luarocks path setup]], false)
 time([[try_loadstring definition]], true)
 local function try_loadstring(s, component, name)
-  local success, result = pcall(loadstring(s))
+  local success, result = pcall(loadstring(s), name, _G.packer_plugins[name])
   if not success then
     vim.schedule(function()
       vim.api.nvim_notify('packer.nvim: Error running ' .. component .. ' for ' .. name .. ': ' .. result, vim.log.levels.ERROR, {})
@@ -71,67 +71,83 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["gitsigns.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/gitsigns.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["lsp-rooter.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/lsp-rooter.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/lsp-rooter.nvim",
+    url = "https://github.com/ahmedkhalf/lsp-rooter.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/lualine.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/hoob3rt/lualine.nvim"
   },
   ["nord.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nord.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-compe"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-compe"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-compe",
+    url = "https://github.com/hrsh7th/nvim-compe"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-toggleterm.lua"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-toggleterm.lua",
+    url = "https://github.com/akinsho/nvim-toggleterm.lua"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/kyazdani42/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-refactor"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
   },
   ["nvim-web-devicons"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-web-devicons"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/packer.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/plenary.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/tokyonight.nvim"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   vimpeccable = {
     loaded = true,
-    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/vimpeccable"
+    path = "/home/jash_maester/.local/share/nvim/site/pack/packer/start/vimpeccable",
+    url = "https://github.com/svermeulen/vimpeccable"
   }
 }
 
