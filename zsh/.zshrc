@@ -2,25 +2,32 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 #source ~/.profile
 
+autoload -U +X compinit && compinit
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.config/zsh"
 
+#HISTSIZE=100000
+#SAVEHIST=100000
+#HISTFILE=~/.history
+
 # ---------- CUDA Specific -----------------
-#export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-#export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 # ------------------------------------------
 
 #export JAVA_HOME="/usr/lib/jvm/java-11-amazon-corretto/"
 #export PATH="$PATH:$JAVA_HOME/bin"
-export PATH="$PATH:$HOME/flutter/bin"
+#export PATH="$PATH:$HOME/flutter/bin"
 #export PATH="$PATH:$HOME/.cargo/bin"
-export EDITOR='vim'
+export EDITOR='nvim'
 export _JAVA_AWT_WM_NONREPARENTING=1
 export TERMINAL="st"
 #export PATH=$PATH:$HOME/bin
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 ########### ZSH-Utils ######################
 # Source Each and every file in zsh-utils directory
@@ -71,27 +78,38 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 #   export EDITOR='mvim'
 # fi
 
-EDITOR='vim'
+#EDITOR='nvim'
+
+########### ROS SPECIFIC #######################
+
+#source /opt/ros/noetic/setup.zsh
+#source ~/Work/ros/catkin_ws/devel/setup.zsh
+#alias catkin_ws='cd ~/Work/ros/catkin_ws && source devel/setup.zsh'
 
 ########### ALIASES ############################
 
 #alias youtube='tizonia --youtube-audio-search'
 #alias ssh-chat='cd ~/Downloads/ssh-chat/ && sudo ./ssh-chat --bind ":22" --verbose --identity ~/.ssh/id_rsa'
 
-alias update='sudo apt update && sudo apt upgrade'
+#alias update='sudo apt update && sudo apt upgrade'
 alias v='vim'
-alias rm=rm -i
+alias rm='rm -i'
 alias cat=bat
 alias ls=exa
 alias l='exa -lah'
 alias la='exa -a'
+alias vim=nvim
 alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia"
+alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 
-#neofetch
 pfetch
-#afetch
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
 #bindkey '\e[3~' delete-char
 #eval "`pip completion --zsh`"
+#-e 
+if [ -e /home/jash_maester/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jash_maester/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Docker Crap
+export DOCKER_HOST=unix:///run/user/1000/docker.sock
