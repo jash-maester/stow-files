@@ -9,7 +9,7 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-DEFAULT_SESSION='i3'
+DEFAULT_SESSION='dwm'
 
 # merge in defaults and keymaps
 
@@ -40,5 +40,6 @@ fi
 
 #xset r rate 252 22
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/libexec/polkitd --no-debug &
 #/usr/bin/prime-offload &
 exec dwm

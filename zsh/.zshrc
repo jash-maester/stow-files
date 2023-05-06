@@ -28,6 +28,9 @@ export TERMINAL="st"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 #export PATH="$PATH:$HOME/.rvm/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH=~/.npm-global/bin:$PATH
+export BROWSER=/usr/bin/google-chrome-stable
+export QT_QPA_PLATFORMTHEME=qt5ct
 
 ########### ZSH-Utils ######################
 # Source Each and every file in zsh-utils directory
@@ -98,7 +101,7 @@ alias cat=bat
 alias ls=exa
 alias l='exa -lah'
 alias la='exa -a'
-alias vim=nvim
+alias vim=lvim
 alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia"
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 
@@ -106,10 +109,29 @@ pfetch
 
 VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
 VI_MODE_SET_CURSOR=true
+
 #bindkey '\e[3~' delete-char
+
 #eval "`pip completion --zsh`"
-#-e 
-if [ -e /home/jash_maester/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jash_maester/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# Nix Installer Crap
+#if [ -e /home/jash_maester/.nix-profile/etc/profile.d/nix.sh ]; then . /home/jash_maester/.nix-profile/etc/profile.d/nix.sh; fi 
 
 # Docker Crap
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jash/.miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/jash/.miniconda/etc/profile.d/conda.sh" ]; then
+        . "/home/jash/.miniconda/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/jash/.miniconda/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

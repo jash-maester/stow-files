@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 LANG=C
 
-theme="style_9"
-dir="$HOME/.config/rofi/launchers/colorful"
+theme="style_launcher"
+dir="$HOME/.config/rofi"
 
 # dark
 ALPHA="#00000000"
@@ -11,8 +11,7 @@ FG="#d8dee9BF"
 SELECT="#3b4252C0"
 
 # accent colors
-COLORS=('#8FBCBB' '#88C0D0' '#81A1C1' '#5E81AC' '#BF616A' '#D08770' '#B48EAD')
-ACCENT="${COLORS[$(( $RANDOM % 7 ))]}ff"
+ACCENT="#BF616AFF"
 
 # overwrite colors file
 cat > $dir/colors.rasi <<- EOF
@@ -25,6 +24,14 @@ cat > $dir/colors.rasi <<- EOF
 	  fg:  $FG;
 	  ac:  $ACCENT;
 	}
+  element-text {
+    background-color: inherit;
+    text-color:       inherit;
+  }
+  element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+  }
 EOF
 
 rofi -no-lazy-grab -modi drun -show drun -theme $dir/"$theme" -font "Noto Sans Regular 10"
