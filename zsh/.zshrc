@@ -98,9 +98,9 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 alias v='vim'
 alias rm='rm -i'
 alias cat=bat
-alias ls=exa
-alias l='exa -lah'
-alias la='exa -a'
+alias ls=eza
+alias l='eza -lah'
+alias la='eza -a'
 alias vim=lvim
 alias prime-run="__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX_VENDOR_LIBRARY_NAME=nvidia"
 alias youtube-dl-audio='youtube-dl --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
